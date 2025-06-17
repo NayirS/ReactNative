@@ -1,15 +1,16 @@
 import React from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
-const Login = ({ navigation }) => {
+const Register = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Connexion</Text>
+      <Text style={styles.title}>Inscription</Text>
+      <TextInput placeholder="Nom complet" style={styles.input} />
       <TextInput placeholder="Email" style={styles.input} />
       <TextInput placeholder="Mot de passe" secureTextEntry style={styles.input} />
-      <Button title="Se connecter" onPress={() => navigation.navigate('Profile')} />
-      <Text style={styles.link} onPress={() => navigation.navigate('Register')}>
-        Pas de compte ? S'inscrire
+      <Button title="S'inscrire" onPress={() => navigation.navigate('Profile')} />
+      <Text style={styles.link} onPress={() => navigation.navigate('Login')}>
+        Déjà un compte ? Se connecter
       </Text>
     </View>
   );
@@ -22,4 +23,4 @@ const styles = StyleSheet.create({
   link: { marginTop: 10, color: 'blue', textAlign: 'center' },
 });
 
-export default Login;
+export default Register;
