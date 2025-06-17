@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-nativetp",
-    "slug": "react-nativetp",
+    "name": "MyFirebaseApp",
+    "slug": "MyFirebaseApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
