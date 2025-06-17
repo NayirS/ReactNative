@@ -18,7 +18,13 @@
       "require",
       "import",
       "react-native"
-    ]
+    ],
+
+    // Ajoute ceci ↓↓↓↓↓
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "exclude": [
     "node_modules",
