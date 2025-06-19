@@ -6,7 +6,7 @@ import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import HomeScreen from './screens/HomeScreen';
 import TicketScreen from './screens/TicketScreen';
-
+import TicketDetailsScreen from './screens/TicketDetailsScreen';
 export type RootStackParamList = {
   Login: undefined;
   Signup: undefined;
@@ -25,6 +25,7 @@ export default function App() {
         <Stack.Screen name="Signup" component={SignupScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Ticket" component={TicketScreen} />
+        <Stack.Screen name="TicketDetails" component={TicketDetailsScreen} options={{ title: 'Détail du Ticket' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
