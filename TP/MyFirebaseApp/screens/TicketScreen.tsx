@@ -1,20 +1,28 @@
 import React from 'react';
-import { View, Text, Platform,StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../App';
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Ticket'>;
 
 export default function TicketScreen() {
-    const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp>();
 
-      const handlePress = () => {
-        navigation.navigate('TicketDetails', {
-          id: '1',
-          title: 'Problème de connexion',
-        });
+  const handlePress = () => {
+    navigation.navigate('TicketDetails', {
+      id: '1',
+      title: 'Problème de connexion',
+    });
   };
 
   return (
-
-    
     <View style={styles.container}>
       <TouchableOpacity style={styles.ticket} onPress={handlePress}>
         <Text style={styles.ticketTitle}>🎫 Ticket #1</Text>
