@@ -1,10 +1,25 @@
 import React from 'react';
-import { View, Text, Platform, StyleSheet } from 'react-native';
+import { View, Text, Platform,StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function TicketScreen() {
+    const navigation = useNavigation();
+
+      const handlePress = () => {
+        navigation.navigate('TicketDetails', {
+          id: '1',
+          title: 'Problème de connexion',
+        });
+  };
+
   return (
+
+    
     <View style={styles.container}>
-      <Text style={styles.text}>Liste des tickets (à venir)</Text>
+      <TouchableOpacity style={styles.ticket} onPress={handlePress}>
+        <Text style={styles.ticketTitle}>🎫 Ticket #1</Text>
+        <Text style={styles.ticketSubtitle}>Problème de connexion</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -12,8 +27,7 @@ export default function TicketScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 20,
     ...Platform.select({
       ios: {
         backgroundColor: '#F2F2F7',
@@ -25,11 +39,23 @@ const styles = StyleSheet.create({
       },
     }),
   },
-  text: {
-    fontSize: Platform.OS === 'ios' ? 17 : 16,
-    fontFamily: Platform.select({
-      ios: 'San Francisco',
-      android: 'Roboto',
-    }),
+  ticket: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+    marginBottom: 10,
+  },
+  ticketTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  ticketSubtitle: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 4,
   },
 });
